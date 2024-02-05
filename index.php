@@ -9,14 +9,16 @@ class Product
     private $image;
     private $description;
     private $price;
+    private $category;
 
     // methods
-    public function __construct($title, $image, $description, $price)
+    public function __construct($title, $image, $description, $price, $category)
     {
         $this->setTitle($title);
         $this->setImage($image);
-        $this->setPrice($price);
         $this->setDescription($description);
+        $this->setPrice($price);
+        $this->setCategory($category);
     }
 
     public function setTitle($title)
@@ -24,28 +26,58 @@ class Product
         $this->title = $title;
     }
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function setDescription($description)
     {
         $this->description = $description;
     }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
     }
 
     public function setCategory($category)
     {
         $this->category = $category;
     }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
 }
 
 // test
-$product = new Product("Titolo prodotte", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto");
-var_dump($product);
+$product = new Product("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto");
+// var_dump($product);
+
+// test
+echo "Product: " . $product->getTitle();
 
 ?>
