@@ -104,6 +104,36 @@ class Food extends Product
 
 }
 
+class Toys extends Product
+{
+
+    // variables
+    private $color;
+
+    // methods
+    public function __construct($title, $image, $description, $price, $category, $color)
+    {
+        $this->setTitle($title);
+        $this->setImage($image);
+        $this->setDescription($description);
+        $this->setPrice($price);
+        $this->setCategory($category);
+
+        $this->setColor($color);
+    }
+
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
+
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+}
+
 // TEST
 // $product = new Product("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto");
 // var_dump($product);
@@ -115,5 +145,13 @@ class Food extends Product
 // var_dump($food);
 // echo "<pre>";
 // echo "Ingredients:" . $food->getIngredients();
+
+// TEST
+// $toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
+// echo "<pre>";
+// var_dump($toy);
+// echo "<pre>";
+// echo "<br>";
+// echo "Colors:" . $toy->getColor();
 
 ?>
