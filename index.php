@@ -73,11 +73,47 @@ class Product
 
 }
 
-// test
-$product = new Product("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto");
-// var_dump($product);
+// class Food
+class Food extends Product
+{
 
-// test
-echo "Product: " . $product->getTitle();
+    // variables
+    private $ingredients;
+
+    // methods
+    public function __construct($title, $image, $description, $price, $category, $ingredients)
+    {
+        $this->setTitle($title);
+        $this->setImage($image);
+        $this->setDescription($description);
+        $this->setPrice($price);
+        $this->setCategory($category);
+
+        $this->setIngredients($ingredients);
+    }
+
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+    }
+
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+}
+
+// TEST
+// $product = new Product("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto");
+// var_dump($product);
+// echo "Product: " . $product->getTitle();
+
+// TEST
+// $food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Ingredienti");
+// echo "<pre>";
+// var_dump($food);
+// echo "<pre>";
+// echo "Ingredients:" . $food->getIngredients();
 
 ?>
