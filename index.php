@@ -140,17 +140,18 @@ class Toys extends Product
 // echo "Product: " . $product->getTitle();
 
 // TEST
-// $food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Ingredienti");
-// echo "<pre>";
-// var_dump($food);
-// echo "<pre>";
+$food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Ingredienti");
+echo "<pre>";
+var_dump($food);
+echo "<pre>";
+echo "<br>";
 // echo "Ingredients:" . $food->getIngredients();
 
 // TEST
-// $toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
-// echo "<pre>";
-// var_dump($toy);
-// echo "<pre>";
+$toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
+echo "<pre>";
+var_dump($toy);
+echo "<pre>";
 // echo "<br>";
 // echo "Colors:" . $toy->getColor();
 
