@@ -1,176 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-// class Product
-class Product
-{
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    // variables 
-    private $title;
-    private $image;
-    private $description;
-    private $price;
-    private $category;
+<body>
 
-    // methods
-    public function __construct($title, $image, $description, $price, $category)
-    {
-        $this->setTitle($title);
-        $this->setImage($image);
-        $this->setDescription($description);
-        $this->setPrice($price);
-        $this->setCategory($category);
-    }
+    <?php
 
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
+    // require
+    require_once(__DIR__ . "/db.php");
 
-    public function getTitle()
-    {
-        return $this->title;
-    }
+    echo $scatolette->getTitle();
+    ?>
+    <img src="<?php echo $scatolette->getImage();
+    ?>" alt="">
 
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
+</body>
 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    public function setPrice($price)
-    {
-        if (!is_numeric($price))
-            throw new Exception("price has to be a number");
-
-        $this->price = $price;
-    }
-
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setCategory($category)
-    {
-        $this->category = $category;
-    }
-
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-}
-
-// class Food
-class Food extends Product
-{
-
-    // variables
-    private $ingredients;
-
-    // methods
-    public function __construct($title, $image, $description, $price, $category, $ingredients)
-    {
-        $this->setTitle($title);
-        $this->setImage($image);
-        $this->setDescription($description);
-        $this->setPrice($price);
-        $this->setCategory($category);
-
-        $this->setIngredients($ingredients);
-    }
-
-    public function setIngredients($ingredients)
-    {
-        $this->ingredients = $ingredients;
-    }
-
-    public function getIngredients()
-    {
-        return $this->ingredients;
-    }
-
-}
-
-class Toys extends Product
-{
-
-    // variables
-    private $color;
-
-    // methods
-    public function __construct($title, $image, $description, $price, $category, $color)
-    {
-        $this->setTitle($title);
-        $this->setImage($image);
-        $this->setDescription($description);
-        $this->setPrice($price);
-        $this->setCategory($category);
-
-        $this->setColor($color);
-    }
-
-    public function setColor($color)
-    {
-        $this->color = $color;
-    }
-
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-}
-
-// TEST
-// $product = new Product("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto");
-// var_dump($product);
-// echo "Product: " . $product->getTitle();
-
-// TEST
-try {
-
-    $food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", 10, "Categoria Prodotto", "Ingredienti");
-
-    echo "<pre>";
-    var_dump($food);
-    echo "<pre>";
-    echo "<br>";
-    // echo "Ingredients:" . $food->getIngredients();
-
-} catch (Exception $e) {
-    echo "Error about set price: " . $e->getMessage();
-}
-
-
-// TEST
-try {
-
-    $toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
-    echo "<pre>";
-    var_dump($toy);
-    echo "<pre>";
-    // echo "<br>";
-// echo "Colors:" . $toy->getColor();
-
-} catch (Exception $e) {
-    echo "Error about set price: " . $e->getMessage();
-}
-
-
-?>
+</html>
