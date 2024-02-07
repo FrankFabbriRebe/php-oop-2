@@ -53,6 +53,9 @@ class Product
 
     public function setPrice($price)
     {
+        if (!is_numeric($price))
+            throw new Exception("price has to be a number");
+
         $this->price = $price;
     }
 
@@ -140,19 +143,34 @@ class Toys extends Product
 // echo "Product: " . $product->getTitle();
 
 // TEST
-$food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Ingredienti");
-echo "<pre>";
-var_dump($food);
-echo "<pre>";
-echo "<br>";
-// echo "Ingredients:" . $food->getIngredients();
+try {
+
+    $food = new Food("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", 10, "Categoria Prodotto", "Ingredienti");
+
+    echo "<pre>";
+    var_dump($food);
+    echo "<pre>";
+    echo "<br>";
+    // echo "Ingredients:" . $food->getIngredients();
+
+} catch (Exception $e) {
+    echo "Error about set price: " . $e->getMessage();
+}
+
 
 // TEST
-$toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
-echo "<pre>";
-var_dump($toy);
-echo "<pre>";
-// echo "<br>";
+try {
+
+    $toy = new Toys("Titolo prodotto", "Imagine Prodotto", "Descrizione Prodotto", "Prezzo Prodotto", "Categoria Prodotto", "Colore");
+    echo "<pre>";
+    var_dump($toy);
+    echo "<pre>";
+    // echo "<br>";
 // echo "Colors:" . $toy->getColor();
+
+} catch (Exception $e) {
+    echo "Error about set price: " . $e->getMessage();
+}
+
 
 ?>
